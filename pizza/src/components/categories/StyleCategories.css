@@ -1,0 +1,39 @@
+.Categories {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding-top: 40px;
+}
+
+.item ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+.item ul li {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+.item ul li {
+    padding: 15px 30px;
+    border-radius: 30px;
+    background: #F9F9F9;
+    list-style: none;
+}
+.item ul li {
+    font-family: "Nunito";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+}
+
+/* DropDown */
+.item ul .active{
+    color: #fff;
+    background: #282828;
+    animation-name: active;
+    transition: all 0.3s ease;
+}

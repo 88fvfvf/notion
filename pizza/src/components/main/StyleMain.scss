@@ -1,0 +1,68 @@
+main{
+    padding-top: 35px;
+}
+.main {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 35px;
+}
+
+.main__pizza {
+    display: flex;
+    align-items: center;
+    flex-direction: column; 
+    flex-wrap: wrap;
+    padding-top: 35px;
+
+    >.main__img img{
+        max-width: 260px;
+        width: 100%;
+    }
+}
+
+.pizza__options {
+    display: flex;
+    flex-direction: column;
+    width: 280px;
+    gap: 22px;
+
+    >.main__title_pizza {
+        text-align: center;
+    }
+}
+.ant-segmented-item > div{
+    font-family: 'Nunito';
+    font-weight: 700;
+}
+.main__price_button {
+    display: flex;
+    justify-content: space-between;
+
+    >button {
+        font-family: 'Nunito';
+        font-weight: 800;
+        font-size: 16px;
+        color: #EB5A1E;
+        border: 1px solid #EB5A1E;
+        border-radius: 30px;
+        background: #FFF;
+        width: 155px;
+        height: 40px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        &:hover{
+            color: #FFF;
+            background-color: #EB5A1E;
+            >span svg path{
+                fill: #FFF;
+            }
+        }
+    }
+}
+.ant-skeleton-image{
+    margin-top: 50px;
+    border-radius: 50% !important;
+    width: 260px !important;
+    height: 260px !important;
+}

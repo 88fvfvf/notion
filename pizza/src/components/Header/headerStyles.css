@@ -1,0 +1,65 @@
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #F6F6F6;
+    padding-bottom: 45px;
+}
+
+.header__left a{
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #000;
+    gap: 17px;
+}
+
+.header__logo {
+    margin-bottom: -15px;
+}
+
+.header__text h1 {
+    font-family: 'Nunito';
+    font-size: 24px;
+    font-weight: 1000;
+    text-transform: uppercase;
+}
+
+.header__text p {
+    color: #7B7B7B;
+    font-family: "Nunito";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 0.3;
+}
+
+/* header__right */
+
+.header__right a{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    background: #FE5F1E;
+    color: #FFF;
+    font-family: "Nunito";
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    text-decoration: none;
+    border-radius: 30px;
+    width: 160px;
+    height: 60px;
+}
+
+.header__left_line {
+    background: rgba(255, 255, 255, 0.25);
+    width: 1px;
+    height: 25px;
+    flex-shrink: 0;
+}
+
+.basket span{
+    padding-left: 5px;
+}
