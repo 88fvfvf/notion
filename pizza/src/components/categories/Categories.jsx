@@ -1,16 +1,12 @@
 import { DownOutlined } from '@ant-design/icons';
 import { Dropdown, Space, Typography } from 'antd';
-import { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { useFetchCategoriesQuery, useFetchSortedPizzaQuery } from '../../store/api/api.pizza';
-import { setSortedPizza } from '../../store/toolkit/pizza.slice';
+import { useState } from 'react';
+import { useFetchCategoriesQuery } from '../../store/api/api.pizza';
 import './StyleCategories.css';
-import useSelection from 'antd/es/table/hooks/useSelection';
 
 const Categories = () => {
     const [activeIndex, setActiveIndex] = useState(0); // Используем null для обозначения отсутствия активного элемента
     const [selectedValue, setSelectedValue] = useState('популярности');
-    const [sort,setSort] = useState('')
 
     const handleMenuClick = (e) => {
         setSelectedValue(e.key);
@@ -43,16 +39,6 @@ const Categories = () => {
             setActiveIndex(index); // Устанавливаем активным новый элемент
         }
     };
-    const page = useSelector(state => state.pizza.page)
-    const { data: sorted } = useFetchSortedPizzaQuery(sort,page);
-
-    // console.log(sorted);
-
-    const dispatch = useDispatch()
-
-    useEffect(() => {
-        dispatch(setSortedPizza(sorted))
-    },[dispatch,sort,sorted])
 
     return (
         <div className='Categories'>
@@ -63,7 +49,7 @@ const Categories = () => {
                         key={item.id}
                         onClick={() => {
                             handleItemClick(index);
-                            setSort(item.categories);
+                            // setSort(item.categories);
                         }}
                         className={activeIndex === index ? 'active' : ''}>
                             {item.categories}

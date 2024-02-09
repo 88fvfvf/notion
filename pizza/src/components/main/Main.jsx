@@ -1,30 +1,23 @@
-import { Empty, Pagination, Segmented, Skeleton } from 'antd'
+import { Pagination, Segmented, Skeleton } from 'antd'
 import { useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import { useFetchSortedPizzaQuery } from '../../store/api/api.pizza'
-import { setSortedPage } from '../../store/toolkit/pizza.slice'
+import { useFetchPizzaQuery } from '../../store/api/api.pizza'
 import { PlusIcon } from '../../svg/icone'
 import './StyleMain.scss'
 
 const Main = () => {
-    // const [page, setPage] = useState(1)
-    // const { data, isLoading, isError } = useFetchSortedPizzaQuery(page)
-    const {sortedPizza,page} = useSelector(state => state.pizza);
-    const dispatch = useDispatch()
-    const load = false
-
+    const [page, setPage] = useState(1)
     const handleClick = (page) => {
-        dispatch(setSortedPage(page))
+        setPage(page)
     }
-    console.log(page);
+    const { data, isLoading } = useFetchPizzaQuery(page)
 
     return (
         <main>
             <h1>Все пиццы</h1>
             <div className="main">
-                {sortedPizza?.map(pizza => (
+                {data?.map(pizza => (
                     <div key={pizza.id} className="main__pizza">
-                        {load ? (
+                        {isLoading ? (
                             <div>
                                 <Skeleton.Image active />
                                 <Skeleton active title={{ width: "200px" }} paragraph={{ width: [300, 300], rows: 2 }} style={{ paddingTop: 30 }} />

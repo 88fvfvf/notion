@@ -17,18 +17,8 @@ export const pizzaApi = createApi({
             query: () => ({
                 url: '/categories'
             })
-        }),
-        fetchSortedPizza: builder.query({
-            query: (filter,page=1, limit = 8) => ({
-                url: '/pizza',
-                params: {
-                    page,
-                    limit,
-                    filter
-                }
-            })
         })
     })
 })
 
-export const { useFetchCategoriesQuery, useFetchPizzaQuery, useFetchSortedPizzaQuery } = pizzaApi
+export const { useFetchCategoriesQuery, useFetchPizzaQuery } = pizzaApi
