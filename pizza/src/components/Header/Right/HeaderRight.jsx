@@ -1,17 +1,19 @@
 import { NavLink } from "react-router-dom"
 import { BasketIcone } from "../../../svg/icone"
+import { useSelector } from "react-redux"
 
 const HeaderRight = () => {
+    const {orders,price} = useSelector(state => state.OrderSlice)
     return (
         <div className="header__right">
             <NavLink to='/basket'>
                 <div className="price">
-                    <span>520 ₽</span>
+                    <span>{price} ₽</span>
                 </div>
                 <div className="header__left_line"></div>
                 <div className="basket">
                     <BasketIcone />
-                    <span>3</span>
+                    <span>{orders}</span>
                 </div>
             </NavLink>
         </div>
