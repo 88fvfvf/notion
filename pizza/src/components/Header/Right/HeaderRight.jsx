@@ -1,18 +1,11 @@
-import { NavLink } from "react-router-dom"
-import { BasketIcone } from "../../../svg/icone"
-import { useDispatch, useSelector } from "react-redux"
-import { useEffect } from "react";
+import { useSelector } from "react-redux";
+import { NavLink } from "react-router-dom";
+import { BasketIcone } from "../../../svg/icone";
 
 const HeaderRight = () => {
-    const data = useSelector(state => state.pizzaSlice.Pizza);
-    const {price} = useSelector(state => state.OrderSlice)
-    const {changeAmount} = useSelector(state => state.pizzaSlice)
-    const dispatch = useDispatch()
+    const {price} = useSelector(state => state.pizzaSlice)
+    const {amount} = useSelector(state => state.pizzaSlice)
     
-    useEffect(() => {
-        dispatch(changeAmount);
-    }, [data, dispatch]);
-    console.log(changeAmount);
     return (
         <div className="header__right">
             <NavLink to='/basket'>
@@ -22,7 +15,7 @@ const HeaderRight = () => {
                 <div className="header__left_line"></div>
                 <div className="basket">
                     <BasketIcone />
-                    <span>{changeAmount}</span>
+                    <span>{amount}</span>
                 </div>
             </NavLink>
         </div>

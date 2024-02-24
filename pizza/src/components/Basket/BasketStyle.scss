@@ -21,7 +21,17 @@
         font-weight: 700;
     }
 }
+.pizza__right{
+    display: flex;
+    align-items: center;
+    gap: 80px;
 
+    >.Change__amount{
+        display: flex;
+        align-items: center;
+        gap: 15px;
+    }
+}
 .Pizza {
     display: flex;
     justify-content: space-between;
@@ -29,7 +39,7 @@
     padding-block: 20px;
     border-top: 1px solid #F4F4F4;
 
-    >.Change__amout {
+    >.Change__amount {
         display: flex;
         align-items: center;
         gap: 10px;

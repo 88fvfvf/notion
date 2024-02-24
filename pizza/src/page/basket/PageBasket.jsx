@@ -1,16 +1,16 @@
-import Orders from "../../components/Basket/Orders"
+import Basket from "../../components/Basket/Basket"
 import HeaderLeft from "../../components/Header/Left/HeaderLeft"
 import './StyleBasket.scss'
 
-const Basket = () => {
+const PageBasket = () => {
     return (
         <div className="container">
             <HeaderLeft />
             <div className="BasketOrders">
-                <Orders />
+                <Basket />
             </div>
         </div>
     )
 }
 
-export default Basket
+export default PageBasket

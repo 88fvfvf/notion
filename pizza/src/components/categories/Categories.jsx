@@ -25,6 +25,7 @@ const Categories = () => {
                         key={item.id}
                         onClick={() => {
                             handleItemClick(index);
+                            console.log(item.categories);
                         }}
                         className={activeIndex === index ? 'active' : ''}>
                             {item.categories}

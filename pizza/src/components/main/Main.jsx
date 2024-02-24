@@ -1,31 +1,19 @@
-import { Pagination, Segmented, Skeleton } from 'antd'
+import { Pagination, Skeleton } from 'antd'
 import { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { useFetchPizzaQuery } from '../../store/api/api.pizza'
-import { addPrice } from '../../store/toolkit/order/Order.slice'
+import { addPizza, addPrice } from '../../store/toolkit/pizzaBasket/pizza.slice'
 import { PlusIcon } from '../../svg/icone'
 import './StyleMain.scss'
-import { addPizza } from '../../store/toolkit/order/pizza.slice'
-import { addSizes, addTypes } from '../../store/toolkit/typesSizes/typesSizes.slice'
 
 const Main = () => {
     const [page, setPage] = useState(1)
     const { data, isLoading } = useFetchPizzaQuery(page)
-    const [valueType, setValueType] = useState('26 см.')
-    const [valueSize, setValueSize] = useState('тонкое')
     const dispatch = useDispatch()
 
     const handleClick = (page) => {
         setPage(page)
     }
-    const HandleValueType = (type) => {
-        setValueType(type)
-    }
-    const HandleValueSize = (size) => {
-        setValueSize(size)
-    }
-
-    console.log(valueSize, valueType);
 
     return (
         <main>
@@ -49,18 +37,13 @@ const Main = () => {
                                     </div>
 
                                     <div className="main__segments">
-                                        <Segmented size='large' options={['тонкое', 'традиционное']} onChange={(type) => HandleValueType(type)} block />
-                                        <div>
-                                            <Segmented size='large' options={pizza.sizes} onChange={(size) => HandleValueSize(size)} block />
-                                        </div>
+                                        {/* Potom sdelayu */}
                                     </div>
                                     <div className="main__price_button">
                                         <h2>от {pizza?.price} ₽</h2>
                                         <button onClick={() => {
                                             dispatch(addPrice(pizza?.price));
                                             dispatch(addPizza(pizza));
-                                            dispatch(addTypes(valueType));
-                                            dispatch(addSizes(valueSize))
                                         }}><span><PlusIcon /></span> Добавить</button>
                                     </div>
                                 </div>
