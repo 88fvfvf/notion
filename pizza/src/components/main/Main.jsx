@@ -14,7 +14,7 @@ const Main = () => {
     const handleClick = (page) => {
         setPage(page)
     }
-
+    console.log(data);
     return (
         <main>
             <h1>Все пиццы</h1>
